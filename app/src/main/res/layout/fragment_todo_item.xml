@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/id_TV"
+        android:id="@+id/todo_id_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -14,11 +14,11 @@
         />
 
     <TextView
-        android:id="@+id/todo_TV"
+        android:id="@+id/todo_text_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/id_TV"
-        app:layout_constraintTop_toTopOf="@id/id_TV"
+        app:layout_constraintStart_toEndOf="@id/todo_id_TV"
+        app:layout_constraintTop_toTopOf="@id/todo_id_TV"
         />
 
     <CheckBox
@@ -26,6 +26,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/id_TV"
+        app:layout_constraintTop_toTopOf="@id/todo_id_TV"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
