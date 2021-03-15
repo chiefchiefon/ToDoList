@@ -1,4 +1,4 @@
-package com.github.chiefchiefon.todolist.model
+package com.github.chiefchiefon.todolist.model.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
