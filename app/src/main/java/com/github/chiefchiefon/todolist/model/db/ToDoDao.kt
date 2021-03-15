@@ -6,13 +6,13 @@ import androidx.room.*
 @Dao
 interface ToDoDao {
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    fun insert(toDoItem: ToDoItem)
+    suspend fun insert(toDoItem: ToDoItem)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun updateOrCreate(toDoItem: ToDoItem)
+    suspend fun updateOrCreate(toDoItem: ToDoItem)
 
     @Delete
-    fun delete(toDoItem: ToDoItem)
+    suspend fun delete(toDoItem: ToDoItem)
 
     @Query("SELECT * FROM todoitem WHERE isCompleted = 1")
     fun findCompletedToDos(): LiveData<List<ToDoItem>>
