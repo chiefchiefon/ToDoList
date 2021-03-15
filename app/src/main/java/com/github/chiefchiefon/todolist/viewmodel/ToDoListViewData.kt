@@ -7,7 +7,8 @@ data class ToDoItemViewData(val id: Int?, val itemText: String, val isCompleted:
 //data class ToDoItemViewData(
 //    val id: Int,
 //    val text: String,
-//    val isDone: Boolean
+//    val isDone: Boolean,
+//    val priority: Int
 //)
 
 data class ToDoListViewData (
