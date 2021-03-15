@@ -18,15 +18,15 @@ class ToDoRepository(private val toDoDao: ToDoDao) {
     }
 
 
-    fun addToDo(toDoText: String) {
+    suspend fun addToDo(toDoText: String) {
         toDoDao.insert(ToDoItem(itemText = toDoText, priority = 0))
     }
 
-    fun updateToDo(toDoItem: ToDoItem) {
+    suspend fun updateToDo(toDoItem: ToDoItem) {
         toDoDao.updateOrCreate(toDoItem)
     }
 
-    fun remove(toDoItem: ToDoItem) {
+    suspend fun remove(toDoItem: ToDoItem) {
         toDoDao.delete(toDoItem)
     }
 }
