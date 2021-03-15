@@ -12,16 +12,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.chiefchiefon.todolist.R
 import com.github.chiefchiefon.todolist.viewmodel.ToDoItemViewData
 
-class ToDoListAdapter : ListAdapter<ToDoItemViewData, ToDoListAdapter.ViewHolder>(ToDoDiffUtil()) {
-
-    var clickListener: ((Int) -> Unit)? = null
+class ToDoListAdapter(private val clickListener: (item: ToDoItemViewData) -> Unit) :
+    ListAdapter<ToDoItemViewData, ToDoListAdapter.ViewHolder>(ToDoDiffUtil()) {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val toDoId: TextView = view.findViewById(R.id.todo_id_TV)
         private val toDoText: TextView = view.findViewById(R.id.todo_text_TV)
         private val isCompletedCheckBox: CheckBox = view.findViewById(R.id.isCompleted_CB)
 
-        fun bind(toDoItemViewData: ToDoItemViewData) {
+        fun bind(toDoItemViewData: ToDoItemViewData, clickListener: (item: ToDoItemViewData) -> Unit) {
             toDoId.text = toDoItemViewData.id.toString()
             toDoText.text = toDoItemViewData.itemText
             isCompletedCheckBox.isChecked = toDoItemViewData.isCompleted
@@ -45,14 +44,14 @@ class ToDoListAdapter : ListAdapter<ToDoItemViewData, ToDoListAdapter.ViewHolder
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
-
-        holder.itemView.setOnClickListener {
-            if (getItem(position).id != null)
-                clickListener?.invoke(getItem(position).id!!)
-            else
-                Log.e("ERROR id", "id not found")
-        }
+        holder.bind(getItem(position), clickListener)
+//
+//        holder.itemView.setOnClickListener {
+//            if (getItem(position).id != null)
+//                clickListener?.invoke(getItem(position).id!!)
+//            else
+//                Log.e("ERROR id", "id not found")
+//        }
     }
 
 }
