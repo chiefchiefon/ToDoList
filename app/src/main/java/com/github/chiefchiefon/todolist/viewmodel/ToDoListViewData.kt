@@ -1,6 +1,6 @@
 package com.github.chiefchiefon.todolist.viewmodel
 
-data class ToDoItemViewData(val id: Int?, val itemText: String, val isCompleted: Boolean)
+data class ToDoItemViewData(val id: Int?, val itemText: String, val isCompleted: Boolean, val priority: Int)
 
 // Orel's code
 
