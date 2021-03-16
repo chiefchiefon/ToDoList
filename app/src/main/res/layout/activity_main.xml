@@ -14,7 +14,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/addItemBtn"
         android:hint="@string/write_here_your_todo"
-        />
+        android:autofillHints="what is autofillHints"
+        android:inputType="" />
 
     <Button
         android:id="@+id/addItemBtn"
@@ -26,12 +27,13 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemsList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/addItemET"
+        app:layout_constraintTop_toBottomOf="@id/addItemET"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
